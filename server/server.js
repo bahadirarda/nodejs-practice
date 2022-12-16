@@ -1,5 +1,6 @@
 const http = require('http')
 const fs = require('fs')
+const _ = require('../npm/node_modules/lodash')
 
 
 const server = http.createServer((req, res)=> {
@@ -16,12 +17,18 @@ const server = http.createServer((req, res)=> {
     switch(req.url){
         case '/':
             path += 'index.html'
+            res.statusCode = 200
             break
         case '/about':
             path += 'about.html'
+            res.statusCode = 200
             break
+        case '/about-us':
+            res.statusCode = 301
+            res.setHeader('Location', '/about')
         default:
             path += '404.html'
+            res.statusCode = 404
             break
     }
 
@@ -38,5 +45,27 @@ const server = http.createServer((req, res)=> {
 }) 
 
 server.listen(3000,'localhost',()=>{
-    console.log('3000 portu dinleniyor');
+    console.log('3000 portu dinleniyor...');
 })
+
+
+
+
+//Lodash area
+
+let nums = [25,36,45,89]
+
+_.each(nums,(val, keys) =>{
+    console.log(keys);
+})
+
+let randomNum = _.random(0,20)
+console.log(randomNum);
+
+let greeting = _.once(() =>
+{
+    console.log('hello there!');
+})
+
+greeting()
+greeting()
