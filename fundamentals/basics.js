@@ -1,6 +1,6 @@
-let selamla = (name) => {
+let helloworld = (name) => {
     console.log(`Merhaba, ${name}`)
 }
 
-selamla('arda')
+helloworld('arda')
 
