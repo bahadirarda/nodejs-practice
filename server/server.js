@@ -69,3 +69,7 @@ let greeting = _.once(() =>
 
 greeting()
 greeting()
+
+
+//npm init --yes package.json dosyası oluşturmak için kullanılıyor.
+//npm config set init-author-name "your name", kod sahibini package.json içine ekler
